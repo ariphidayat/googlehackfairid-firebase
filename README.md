@@ -39,6 +39,7 @@
 
 * Apply callback function (example) : 
 
-		myFirebase.on('child_changed', function(snapshot) {
-			console.log(snapshot.val());
+		myFirebase.on('value', function(snapshot) {
+			var val = snapshot.val();
+			console.log(val);
 		});

@@ -17,9 +17,9 @@
 			//write list of data / object
 			myFirebase.set(myData);
 
-			//callback function to notify of the arrival of individual messages
-			myFirebase.on('child_changed', function(snapshot) {
-				console.log(snapshot.val());
+			myFirebase.on('value', function(snapshot) {
+					var val = snapshot.val();
+					console.log(val);
 			});
 
 		</script>
