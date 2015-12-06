@@ -4,22 +4,50 @@
 		<script type="text/javascript" src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 	</head>
 	<body>
+		<div id="results"></div>
+		<input type="text" id="message">
+		<button id="postButton">Test</button>
+
 		<script>
 			var firebaseUrl = "https://googlehackfairid-firebase.firebaseio.com";
 			var myFirebase = new Firebase(firebaseUrl);
 
-			var myData = {
-				username : "Arip Hidayat",
-				message : "Hallo Firebase !",
-				date : Date.now()
-			};
+			var textinput = document.querySelector("#message");
+			var postButton = document.querySelector("#postButton");
 
-			//write list of data / object
-			myFirebase.set(myData);
+			//clear database
+			myFirebase.set(null);
 
-			myFirebase.on('value', function(snapshot) {
-					var val = snapshot.val();
-					console.log(val);
+			//push data by event listener
+			postButton.addEventListener("click", function() {
+
+				//JSON object
+				var myData = {
+						username : "Arip Hidayat",
+						message : textinput.value,
+						date : Date.now()
+					};
+
+				//push list object
+				myFirebase.push(myData);
+
+			});
+
+			//retrive data by child_added callback
+			myFirebase.on('child_added', function(snapshot, prevChildKey) {
+				console.log(snapshot.val());
+				
+				var msgObj = snapshot.val();
+				var username = msgObj.username;
+				var msgText = msgObj.message;
+
+				var html = "<strong>" + username + "</strong> : " + msgText;
+				
+				var htmlel = document.createElement("div");
+				htmlel.innerHTML = html;
+
+				var msgcontainer = document.querySelector("#results");
+				msgcontainer.appendChild(htmlel);
 			});
 
 		</script>

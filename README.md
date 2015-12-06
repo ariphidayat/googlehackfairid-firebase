@@ -24,7 +24,7 @@
 
 * Access your realtime database, your database reference should be `http://[projectname].firebaseio.com` witch this project like :
 
-		var firebaseUrl = "https://arip-h.firebaseio.com";
+		var firebaseUrl = "https://googlehackfairid-firebase.firebaseio.com";
 		var myFirebase = new Firebase(firebaseUrl);
 
 * Write data / object
@@ -43,3 +43,5 @@
 			var val = snapshot.val();
 			console.log(val);
 		});
+
+* Call `index.html` in browser with console of developer tool and see the changes both in your browser console and firebase database 
