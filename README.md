@@ -15,3 +15,24 @@
 	Fill everything in question (Firebase name must unique)
 
 * If Firebase has initialized, you will get `firebase.json` and `directory public root`
+
+### Working with Firebase project :
+* Create `index.html` in your `directory public root`
+* Intall Firebase JS library
+
+		<script type="text/javascript" src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+
+* Access your realtime database, your database reference should be `http://[projectname].firebaseio.com` witch this project like :
+
+		var firebaseUrl = "https://arip-h.firebaseio.com";
+		var myFirebase = new Firebase(firebaseUrl);
+
+* Write data / object
+
+	var myData = {
+		username : "Arip Hidayat",
+		message : "Hallo Firebase !",
+		date : Date.now()
+	};
+
+	myFirebase.set(myData);

@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<!--install firebase library -->
+		<script type="text/javascript" src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+	</head>
+	<body>
+		<script>
+			var firebaseUrl = "https://googlehackfairid-firebase.firebaseio.com";
+			var myFirebase = new Firebase(firebaseUrl);
+
+			var myData = {
+				username : "Arip Hidayat",
+				message : "Hallo Firebase !",
+				date : Date.now()
+			};
+
+			//write data / object
+			myFirebase.set(myData);
+
+		</script>
+	</body>
+</html>
