@@ -36,3 +36,9 @@
 		};
 	
 		myFirebase.set(myData);
+
+* Apply callback function (example) : 
+
+		myFirebase.on('child_changed', function(snapshot) {
+			console.log(snapshot.val());
+		});

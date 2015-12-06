@@ -15,7 +15,12 @@
 			};
 
 			//write list of data / object
-			myFirebase.push(myData);
+			myFirebase.set(myData);
+
+			//callback function to notify of the arrival of individual messages
+			myFirebase.on('child_changed', function(snapshot) {
+				console.log(snapshot.val());
+			});
 
 		</script>
 	</body>
