@@ -29,10 +29,10 @@
 
 * Write data / object
 
-	var myData = {
-		username : "Arip Hidayat",
-		message : "Hallo Firebase !",
-		date : Date.now()
-	};
-
-	myFirebase.set(myData);
+		var myData = {
+			username : "Arip Hidayat",
+			message : "Hallo Firebase !",
+			date : Date.now()
+		};
+	
+		myFirebase.set(myData);
